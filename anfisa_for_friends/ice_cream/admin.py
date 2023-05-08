@@ -27,7 +27,21 @@ class IceCreamAdmin(admin.ModelAdmin):
     filter_horizontal = ('toppings',)
 
 
-admin.site.register(Category)
+class IceCreamInline(admin.StackedInline):
+    model = IceCream
+    extra = 0
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    inlines = (
+        IceCreamInline,
+    )
+    list_display = (
+        'title',
+    )
+
+
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(IceCream, IceCreamAdmin)
 admin.site.register(Topping)
 admin.site.register(Wrapper)
