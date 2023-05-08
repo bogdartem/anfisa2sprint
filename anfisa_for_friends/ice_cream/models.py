@@ -16,9 +16,17 @@ class Topping(PublishedModel):
     title = models.CharField(max_length=256)
     slug = models.SlugField(max_length=64, unique=True)
 
+    class Meta:
+        verbose_name = 'топпинг'
+        verbose_name_plural = 'Топпинги'
+
 
 class Wrapper(PublishedModel):
     title = models.CharField(max_length=256)
+
+    class Meta:
+        verbose_name = 'обёртка'
+        verbose_name_plural = 'Обёртки'
 
 
 class IceCream(PublishedModel):
@@ -38,3 +46,7 @@ class IceCream(PublishedModel):
     )
     toppings = models.ManyToManyField(Topping)
     is_on_main = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = 'мороженое'
+        verbose_name_plural = 'Мороженое'
