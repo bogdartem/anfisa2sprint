@@ -9,6 +9,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
@@ -97,9 +100,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
     ]
-
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
