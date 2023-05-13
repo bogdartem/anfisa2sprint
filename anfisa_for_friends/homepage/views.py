@@ -10,7 +10,9 @@ def index(request):
     ice_cream_list = IceCream.objects.values(
         'id', 'title', 'description'
     ).filter(
-        Q(is_on_main=True) & Q(is_published=True)
+        Q(is_published=True) & (
+            Q(is_on_main=True) | Q(title__contains='пломбир')
+        )
     )
     context = {
         'ice_cream_list': ice_cream_list,
